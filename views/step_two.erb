@@ -1,9 +1,5 @@
-<h1>Convert <%= @the_symbol %> to </h1>>
+<h1>Convert <%= @from %> to <%= @to %> </h1>>
+<p> Go <a href="/<%= @from%>">back</a>.</p>
+<p>1 <%=@from %> equals <%=@amount%> <%= @to %>.</p>
 
-<ul>
-<% @currencies.each do | symbol|%>
-<li>
-<a href="<%= @the_symbol %> / <%= symbol%>">Convert 1 <%=@the_symbol %> to <%= symbol%> ... </a>
-</li>
-<% end%>
-</ul>
+
