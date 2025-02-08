@@ -28,12 +28,12 @@ end
 
 
 get("/:from_currency/:to_currency") do
-  @from = params.fetch("from_currency")
-  @to = params.fetch("to_currency")
+  @from2 = params.fetch("from_currency").strip
+  @to = params.fetch("to_currency").strip
 
-  @url = "https://api.exchangerate.host/convert?access_key=#{ENV.fetch("EXCHANGE_RATE_KEY").chomp}&from=#{@from}&to=#{@to}&amount=1"
+  @url = "https://api.exchangerate.host/convert?from=#{@from2}&to=#{@to}&amount=1&access_key=#{ENV.fetch("EXCHANGE_RATE_KEY")}"
 
-  @raw_response = HTTP.get(@url)
+@raw_response = HTTP.get(@url)
 
   @string_response = @raw_response.to_s
   @parsed_response = JSON.parse(@string_response)
